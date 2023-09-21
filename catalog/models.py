@@ -42,7 +42,8 @@ class Country(models.Model):
 
 
 class AgeRate(models.Model):
-    rate = models.CharField(max_length=20)
+    choise = (('G','G'),('PG','PG'),('PG-13','PG-13'),('R','R'),('NC-17','NC-17'))
+    rate = models.CharField(max_length=20,choices=choise)
 
     def __str__(self):
         return self.rate
