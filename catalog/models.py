@@ -4,31 +4,31 @@ from django.db import models
 
 
 class Doctors(models.Model):
-    surname = models.CharField(max_length=20)
-    name = models.CharField(max_length=15)
-    profesh = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20, verbose_name='Фамилия')
+    name = models.CharField(max_length=15, verbose_name='Имя')
+    profesh = models.CharField(max_length=20, verbose_name='Профессия')
 
     def __str__(self):
-        return self.surname, self.name, self.profesh
+        return f'{self.surname},{self.name},{self.profesh}'
 
 
 class Status(models.Model):
     VIBOR = (('хирург','хирург'),('стоматолог','стоматолог'),
              ('терапевт','терапевт'),('дерматолог','дерматолог'))
-    prof = models.CharField(max_length=20, choices=VIBOR)
+    prof = models.CharField(max_length=20, choices=VIBOR, verbose_name='Профессия')
 
     def __str__(self):
         return self.prof
 
 
 class Services(models.Model):
-    first_inspection = models.TextField(max_length=500)
-    laboratory_tests = models.TextField(max_length=500)
-    cupping = models.TextField(max_length=500)
-    haircuts = models.TextField(max_length=500)
-    nail_trimming = models.TextField(max_length=500)
-    delivery_reception = models.TextField(max_length=500)
-    stomat_ment = models.TextField(max_length=500)
+    first_inspection = models.TextField(max_length=500, verbose_name='Первичный осмотр')
+    laboratory_tests = models.TextField(max_length=500, verbose_name='Лабораторные исследования')
+    cupping = models.TextField(max_length=500, verbose_name='Купирование')
+    haircuts = models.TextField(max_length=500, verbose_name='Стрижка')
+    nail_trimming = models.TextField(max_length=500, verbose_name='Обрезка ногтей')
+    delivery_reception = models.TextField(max_length=500, verbose_name='Прием родов')
+    stomat_ment = models.TextField(max_length=500, verbose_name='Стомотологическое лечение')
 
     def __str__(self):
         return f'{self.first_inspection},{self.laboratory_tests},{self.cupping},' \
@@ -36,13 +36,13 @@ class Services(models.Model):
 
 
 class Prices(models.Model):
-    first_inspection = models.IntegerField()
-    laboratory_tests = models.IntegerField()
-    cupping = models.IntegerField()
-    haircuts = models.IntegerField()
-    nail_trimming = models.IntegerField()
-    delivery_reception = models.IntegerField()
-    stomat_ment = models.IntegerField()
+    first_inspection = models.IntegerField(verbose_name='Первичный осмотр')
+    laboratory_tests = models.IntegerField(verbose_name='Лабораторные исследования')
+    cupping = models.IntegerField(verbose_name='Купирование')
+    haircuts = models.IntegerField(verbose_name='Стрижка')
+    nail_trimming = models.IntegerField(verbose_name='Обрезка ногтей')
+    delivery_reception = models.IntegerField(verbose_name='Прием родов')
+    stomat_ment = models.IntegerField(verbose_name='Стомотологическое лечение')
 
     def __str__(self):
         return f'{self.first_inspection},{self.laboratory_tests},{self.cupping},' \
@@ -50,53 +50,53 @@ class Prices(models.Model):
 
 
 class Animal_card(models.Model):
-    nickname = models.CharField(max_length=20)
-    breed = models.CharField(max_length=20)
-    age = models.IntegerField()
-    height = models.IntegerField()
-    weight = models.IntegerField()
+    nickname = models.CharField(max_length=20, verbose_name='Кличка питомца')
+    breed = models.CharField(max_length=20, verbose_name='Порода')
+    age = models.IntegerField(verbose_name='Возраст')
+    height = models.IntegerField(verbose_name='Рост')
+    weight = models.IntegerField(verbose_name='Вес')
 
     def __str__(self):
-        return self.nickname
+        return f'{self.breed},{self.nickname}'
 
 
 class Owner_card(models.Model):
-    surname = models.CharField(max_length=20)
-    name = models.CharField(max_length=20)
-    address = models.CharField(max_length=50)
-    email = models.EmailField(max_length=30)
-    telefon = models.IntegerField()
-    breed = models.CharField(max_length=20)
-    nickname = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20, verbose_name='Фамилия')
+    name = models.CharField(max_length=20, verbose_name='Имя')
+    address = models.CharField(max_length=50, verbose_name='Адрес')
+    email = models.EmailField(max_length=30, verbose_name='Почта')
+    telefon = models.CharField(max_length=12, verbose_name='Телефон')
+    breed = models.CharField(max_length=20, verbose_name='Порода питомца')
+    nickname = models.CharField(max_length=20, verbose_name='Кличка')
 
     def __str__(self):
-        return self.surname
+        return f'{self.surname},{self.breed},{self.nickname}'
 
 
 class Breed(models.Model):
-    breed = models.CharField(max_length=20)
+    breed = models.CharField(max_length=20, verbose_name='Порода питомца')
 
     def __str__(self):
         return self.breed
 
 
 class Data(models.Model):
-    data = models.DateField()
+    data = models.DateField(verbose_name='Дата')
 
     def __str__(self):
         return self.data
 
 
 class Vet_clinic(models.Model):
-    doctor = models.ManyToManyField(Doctors)
-    services = models.ForeignKey(Services, on_delete=models.SET_NULL,null=True)
-    prices = models.ForeignKey(Prices, on_delete=models.SET_NULL,null=True)
-    owner_card = models.ForeignKey(Owner_card, on_delete=models.CASCADE)
-    animal_card = models.ForeignKey(Animal_card, on_delete=models.CASCADE)
-    servis_price = models.DecimalField(decimal_places=3,max_digits=9)
-    breeds = models.ForeignKey(Breed, on_delete=models.CASCADE)
-    data = models.ForeignKey(Data, on_delete=models.CASCADE)
-    status = models.ForeignKey(Status, on_delete=models.SET_DEFAULT, default=1)
+    doctor = models.ManyToManyField(Doctors, verbose_name='Профессия')
+    services = models.ForeignKey(Services, on_delete=models.SET_NULL,null=True, verbose_name='Услуги')
+    prices = models.ForeignKey(Prices, on_delete=models.SET_NULL,null=True, verbose_name='Цена услуг')
+    owner_card = models.ForeignKey(Owner_card, on_delete=models.CASCADE, verbose_name='Владелец питомца')
+    animal_card = models.ForeignKey(Animal_card, on_delete=models.CASCADE, verbose_name='Питомец')
+    servis_price = models.DecimalField(decimal_places=3,max_digits=9, verbose_name='Стоимость услуг')
+    breeds = models.ForeignKey(Breed, on_delete=models.CASCADE, verbose_name='Породы')
+    data = models.ForeignKey(Data, on_delete=models.CASCADE, verbose_name='Дата')
+    status = models.ForeignKey(Status, on_delete=models.SET_DEFAULT, default=1, verbose_name='Специалист')
 
     def __str__(self):
         return self.doctor
