@@ -48,7 +48,7 @@ class AgeRate(models.Model):
     def __str__(self):
         return self.rate
 
-
+from django.urls import reverse
 class Kino(models.Model):
     title = models.CharField(max_length=30, verbose_name='Название')
     genre = models.ForeignKey(Genre, on_delete=models.SET_DEFAULT, default=1, verbose_name='Жанр')
@@ -70,6 +70,11 @@ class Kino(models.Model):
             res += a.lname+' '
         return res
     display_actors.short_description = 'Актеры'
+
+    # from django.urls import reverse
+    def get_absolute_url(self):
+        return reverse('info', args=[self.id])
+
 
 
 
