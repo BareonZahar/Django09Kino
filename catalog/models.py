@@ -22,17 +22,20 @@ class Status(models.Model):
 
 
 class Services(models.Model):
-    first_inspection = models.TextField(max_length=500, verbose_name='Первичный осмотр')
-    laboratory_tests = models.TextField(max_length=500, verbose_name='Лабораторные исследования')
-    cupping = models.TextField(max_length=500, verbose_name='Купирование')
-    haircuts = models.TextField(max_length=500, verbose_name='Стрижка')
-    nail_trimming = models.TextField(max_length=500, verbose_name='Обрезка ногтей')
-    delivery_reception = models.TextField(max_length=500, verbose_name='Прием родов')
-    stomat_ment = models.TextField(max_length=500, verbose_name='Стомотологическое лечение')
+    # first_inspection = models.TextField(max_length=500, verbose_name='Первичный осмотр')
+    # laboratory_tests = models.TextField(max_length=500, verbose_name='Лабораторные исследования')
+    # cupping = models.TextField(max_length=500, verbose_name='Купирование')
+    # haircuts = models.TextField(max_length=500, verbose_name='Стрижка')
+    # nail_trimming = models.TextField(max_length=500, verbose_name='Обрезка ногтей')
+    # delivery_reception = models.TextField(max_length=500, verbose_name='Прием родов')
+    # stomat_ment = models.TextField(max_length=500, verbose_name='Стомотологическое лечение')
+    VIB = (('Первичный осмотр','Первичный осмотр'),('Лабораторные исследования','Лабораторные исследования'),
+           ('Купирование','Купирование'),('Стрижка','Стрижка'),('Обрезка ногтей','Обрезка ногтей'),
+           ('Прием родов','Прием родов'),('Стомотологическое лечение','Стомотологическое лечение'))
+    servis = models.CharField(null=True,blank=True,max_length=30, choices=VIB, verbose_name='Услуги')
 
     def __str__(self):
-        return f'{self.first_inspection},{self.laboratory_tests},{self.cupping},' \
-               f'{self.haircuts},{self.nail_trimming},{self.delivery_reception},{self.stomat_ment}'
+        return f'{self.servis}'
 
 
 class Prices(models.Model):
@@ -81,15 +84,15 @@ class Breed(models.Model):
 
 
 class Data(models.Model):
-    data = models.DateField(verbose_name='Дата')
+    data = models.DateField()
 
     def __str__(self):
-        return self.data
+        return f'{self.data}'
 
 
 class Vet_clinic(models.Model):
     doctor = models.ManyToManyField(Doctors, verbose_name='Профессия')
-    services = models.ForeignKey(Services, on_delete=models.SET_NULL,null=True, verbose_name='Услуги')
+    services = models.ForeignKey(Services, on_delete=models.CASCADE, verbose_name='Услуги')
     prices = models.ForeignKey(Prices, on_delete=models.SET_NULL,null=True, verbose_name='Цена услуг')
     owner_card = models.ForeignKey(Owner_card, on_delete=models.CASCADE, verbose_name='Владелец питомца')
     animal_card = models.ForeignKey(Animal_card, on_delete=models.CASCADE, verbose_name='Питомец')
