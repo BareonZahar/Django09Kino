@@ -4,7 +4,7 @@ from .models import *
 admin.site.register(Doctors)
 admin.site.register(Status)
 admin.site.register(Services)
-admin.site.register(Prices)
+# admin.site.register(Prices)
 admin.site.register(Animal_card)
 admin.site.register(Owner_card)
 admin.site.register(Breed)
