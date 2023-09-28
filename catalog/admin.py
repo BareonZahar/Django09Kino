@@ -9,7 +9,7 @@ admin.site.register(Services)
 # admin.site.register(Owner_card)
 admin.site.register(Breed)
 admin.site.register(Data)
-admin.site.register(Vet_clinic)
+# admin.site.register(Vet_clinic)
 
 class Doctorsadmin(admin.ModelAdmin):
     list_display = ('surname','name','profesh')
@@ -28,5 +28,10 @@ class Owner_cardadmin(admin.ModelAdmin):
 admin.site.register(Owner_card,Owner_cardadmin)
 
 
-# class Vet_clinicadmin(admin.ModelAdmin):
-#     list_display = ()
+class Vet_clinicadmin(admin.ModelAdmin):
+    list_display = ('services','animal_card','status','display_doctors')
+    list_filter = ('status','breeds','services')
+    fieldsets = (('Об услугах',{'fields':('doctor','services')}),
+                 ('О животных',{'fields':('animal_card','owner_card')}),
+                 ('Остальное',{'fields':('status','data','breeds')}))
+admin.site.register(Vet_clinic,Vet_clinicadmin)

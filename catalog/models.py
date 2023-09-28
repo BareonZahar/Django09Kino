@@ -105,12 +105,19 @@ class Vet_clinic(models.Model):
     owner_card = models.ForeignKey(Owner_card, on_delete=models.CASCADE, verbose_name='Владелец питомца')
     animal_card = models.ForeignKey(Animal_card, on_delete=models.CASCADE, verbose_name='Питомец')
     # servis_price = models.DecimalField(decimal_places=3,max_digits=9, verbose_name='Стоимость услуг')
-    breeds = models.ForeignKey(Breed, on_delete=models.CASCADE, verbose_name='Породы')
+    breeds = models.ForeignKey(Breed, on_delete=models.CASCADE, verbose_name='Породы животных')
     data = models.ForeignKey(Data, on_delete=models.CASCADE, verbose_name='Дата')
     status = models.ForeignKey(Status, on_delete=models.SET_DEFAULT, default=1, verbose_name='Профессия')
 
     def __str__(self):
         return f'{self.doctor}'
+
+    def display_doctors(self):
+        res = ''
+        for a in self.doctor.all():
+            res += a.surname+' '
+        return res
+    display_doctors.short_description = 'Врач'
 
 
 
