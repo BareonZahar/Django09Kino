@@ -6,7 +6,7 @@ from django.db import models
 class Doctors(models.Model):
     surname = models.CharField(max_length=20, verbose_name='Фамилия')
     name = models.CharField(max_length=15, verbose_name='Имя')
-    profesh = models.CharField(max_length=20, verbose_name='Врач')
+    profesh = models.CharField(max_length=20, verbose_name='Профессия')
 
     def __str__(self):
         return f'{self.surname},{self.name},{self.profesh}'
