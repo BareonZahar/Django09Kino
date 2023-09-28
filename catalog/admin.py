@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 # admin.site.register(Doctors)
 admin.site.register(Status)
-admin.site.register(Services)
+# admin.site.register(Services)
 # admin.site.register(Prices)
 # admin.site.register(Animal_card)
 # admin.site.register(Owner_card)
@@ -35,3 +35,12 @@ class Vet_clinicadmin(admin.ModelAdmin):
                  ('О животных',{'fields':('animal_card','owner_card')}),
                  ('Остальное',{'fields':('status','data','breeds')}))
 admin.site.register(Vet_clinic,Vet_clinicadmin)
+
+
+class Stinline(admin.TabularInline):
+    model = Vet_clinic
+
+
+class Servicesadmin(admin.ModelAdmin):
+    inlines = [Stinline]
+admin.site.register(Services,Servicesadmin)
