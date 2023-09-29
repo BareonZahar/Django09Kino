@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2>Каталог услуг</h2>
+      <ul> {% for a in vet_clinic_list %}
+          <li>
+          <a href="{% url 'info' id=a.id %}">{{ a.services}}</a>
+          <p>{{ a.breeds }}</p>
+          </li>
+      {% endfor %}
+
+      </ul>
+
+
+
+{% endblock %}
