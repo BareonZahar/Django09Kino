@@ -1,0 +1,15 @@
+.clinic{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: dimgray;
+    line-height: 2em;
+}
+.clinic a{
+    text-decoration: none;
+    color: yellow;
+    font-size: 1.5em;
+}
+.clinic a:hover{
+    background-color: violet;
+}
