@@ -1,17 +1,14 @@
 {% extends 'index.html' %}
+
 {% block content %}
-    <h2>Каталог услуг</h2>
-      <ul> {% for a in vet_clinic_list %}
+   <h1>Питомец</h1>
+ <ul> {% for a in vet_clinic_list %}
           <li>
-{#          <a href="{% url 'info' id=a.id %}">{{ a.services}}</a>#}
+          <a href="{% url 'info' id=a.id %}">{{ a.services}}</a>
               <a href="{{ a.get_abcolute_url }}">{{ a.services}}</a>
           <p>{{ a.breeds }}</p>
-          <p>{{ k5 }}</p>
           </li>
       {% endfor %}
 
       </ul>
-
-
-
 {% endblock %}

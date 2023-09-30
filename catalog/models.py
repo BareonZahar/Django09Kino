@@ -97,7 +97,7 @@ class Data(models.Model):
     def __str__(self):
         return f'{self.data}'
 
-
+from django.urls import reverse
 class Vet_clinic(models.Model):
     doctor = models.ManyToManyField(Doctors, verbose_name='Врач')
     services = models.ForeignKey(Services, on_delete=models.CASCADE, verbose_name='Услуги')
@@ -118,6 +118,9 @@ class Vet_clinic(models.Model):
             res += a.surname+' '
         return res
     display_doctors.short_description = 'Врач'
+
+    def get_abcolute_url(self):
+        return reverse('info', args=[self.id])
 
 
 

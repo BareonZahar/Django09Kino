@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='home'),
     path('vetclin/', views.Vetclinlist.as_view(),name='allvetclin'),
-    path('vetclin/<int:id>/',views.info,name='info')
+    # path('vetclin/<slug:pk>/',views.VetcDetail.as_view(),name='infor'),
+    path('vetclin/<int:id>/',views.info,name='info'),
+
 ]
