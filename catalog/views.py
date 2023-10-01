@@ -24,10 +24,11 @@ class Vetclinlist(generic.ListView):
 from django.http import HttpResponse
 
 def info(req,id):
-    serv = Vet_clinic.objects.get(id=id)
-    vet = Vet_clinic.objects.filter(serv)
-    k5 = ''
-    for i in vet:
-        k5 = i.animal_card
-    data = {'k5':k5}
-    return render(req,'',context=data)
+    vetc = Vet_clinic.objects.get(id=id)
+    # serv = Vet_clinic.objects.get(id=id)
+    # vet = Vet_clinic.objects.filter(serv)
+    # k5 = ''
+    # for i in vet:
+    #     k5 = i.animal_card
+    # data = {'k5':k5}
+    return HttpResponse(vetc.services)
