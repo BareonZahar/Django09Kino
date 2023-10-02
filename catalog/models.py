@@ -67,13 +67,14 @@ class Kino(models.Model):
     def display_actors(self):
         res = ''
         for a in self.actor.all():
-            res += a.lname+' '
+            res += a.lname+' '+ a.fname
         return res
     display_actors.short_description = 'Актеры'
 
     # from django.urls import reverse
     def get_absolute_url(self):
-        return reverse('info', args=[self.id])
+        return reverse('info', args=[self.id, self.title])
+        # return f'kino/{self.id}/{self.title}'
 
 
 
