@@ -23,6 +23,10 @@ urlpatterns = [
     path('kino/',views.Kinolist123.as_view(),name='allkino'),
     # path('kino/<int:id>/<str:title>',views.info,name='info')
     path('kino/<slug:pk>/<str:title>', views.KinoDetail.as_view(),name='info'),
-    path('user/', include('django.contrib.auth.urls'))
+    path('user/', include('django.contrib.auth.urls')),
+    path('actor/', views.proactor,name='pro'),
+    # path('actor/',views.Actorlist.as_view(),name='actor'),
+    path('actor/<slug:pk>/', views.ActorDetail.as_view(),name='infor'),
+    path('director',views.Directorlist.as_view(),name='director')
 
 ]

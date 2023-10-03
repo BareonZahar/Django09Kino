@@ -34,12 +34,29 @@ class Kinolist123(generic.ListView):
 class KinoDetail(generic.DetailView):
     model = Kino
 
+class Actorlist(generic.ListView):
+    model =Actor
 
+class ActorDetail(generic.DetailView):
+    model = Actor
 
+class Directorlist(generic.ListView):
+    model = Director
 
-# from django.http import HttpResponse
+from django.http import HttpResponse
 # def info(req,id):
 #     film = Kino.objects.get(id=id)
 #     return HttpResponse(film.title)
+def proactor(req):
+    name = Actor.objects.all()
+    # gim = ''
+    # for i in name:
+    #     gim = i.fname +'  ' +i.lname
+    #     # gam
+    #     print(gim)
+    data = {'k1':name}
+    return render(req,'new.html',context=data)
+
+
 
 
