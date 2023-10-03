@@ -4,8 +4,8 @@
       <ul> {% for a in vet_clinic_list %}
           <li>
 {#          <a href="{% url 'info' id=a.id %}">{{ a.services}}</a>#}
-              <a href="{{ a.get_abcolute_url }}">{{ a.services}}</a>
-          <p>{{ a.breeds }}</p>
+              <a href="{{ a.get_abcolute_url }}">{{ a.breeds}}</a>
+          <p>{{ a.age }}</p>
           <p>{{ k5 }}</p>
           </li>
       {% endfor %}
