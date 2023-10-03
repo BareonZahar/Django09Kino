@@ -17,9 +17,14 @@ from django.views import generic
 class Vetclinlist(generic.ListView):
     model = Vet_clinic
 
+class Animal_cardlist(generic.ListView):
+    model = Animal_card
 
-# class VetcDetail(generic.DetailView):
-#     model = Vet_clinic
+class Animal_cardDetail(generic.DetailView):
+    model = Animal_card
+
+class VetcDetail(generic.DetailView):
+    model = Vet_clinic
 
 from django.http import HttpResponse
 
@@ -31,4 +36,8 @@ def info(req,id):
     # for i in vet:
     #     k5 = i.animal_card
     # data = {'k5':k5}
+    return HttpResponse(vetc.services)
+
+def otvet(req,id):
+    vetc = Vet_clinic.objects.get(id=id)
     return HttpResponse(vetc.services)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     {%  block head %}
-    <title>Кино</title>
+    <title>Ветклиника</title>
         <link rel="stylesheet" href="{% static 'css/vetclin.css' %}">
     {% endblock %}
 </head>
@@ -13,7 +13,7 @@
        <div class="clinic">
            <a href="{% url 'home' %}">Главная</a>
            <a href="{% url 'allvetclin' %}">Услуги</a>
-           <a href="">Кличка</a>
+           <a href="{% url 'allanimal' %}">Кличка</a>
            <a href="">Барин</a>
            <a href="">Врачи</a>
        </div>

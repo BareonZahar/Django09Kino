@@ -1,29 +1,14 @@
-{#{% extends 'index.html' %}#}
-{##}
-{#{% block content %}#}
-{#   <h1>Питомец</h1>#}
-{# <ul> {% for a in vet_clinic_list %}#}
-{#          <li>#}
-{#          <a href="{% url 'info' id=a.id %}">{{ a.services}}</a>#}
-{#              <a href="{{ a.get_abcolute_url }}">{{ a.services}}</a>#}
-{#          <p>{{ a.breeds }}</p>#}
-{#          </li>#}
-{#      {% endfor %}#}
-{##}
-{#      </ul>#}
-{#{% endblock %}#}
-
 {% extends 'index.html' %}
 
 {% block content %}
 
-     <h2>Наш пациент {{ kino.title }}</h2>
-     <h2>Описание {{ kino.summary }}</h2>
-     <h2>Режисер {{ kino.director }}</h2>
-     <h2>Рейтинг {{ kino.ager }}</h2>
-     <h2>Уровень подписки {{ kino.status }}</h2>
-     <h2>Актеры: {{ kino.display_actors }}</h2>
-     {% for actor in kino.actor.all %}
-        <p>{{ actor.fname }} // {{ actor.lname }}</p>
-     {% endfor %}
+     <h2>Наш пациент: {{ vet_clinic.animal_card.nickname }}</h2>
+     <h2>Порода: {{ vet_clinic.animal_card.breed }}</h2>
+     <h2>Возраст: {{ vet_clinic.animal_card.age }} (года,лет)</h2>
+     <h2>Рос: {{ vet_clinic.animal_card.height }} см.</h2>
+     <h2>Вес: {{ vet_clinic.animal_card.weight }} кг.</h2>
+     <h2>К какому врачу:  {{ vet_clinic.status.prof }}
+         -- {{ vet_clinic.display_doctors }}</h2>
+     <h2>Услуга: {{ vet_clinic.services }}</h2>
+     <h2>Запись на: {{ vet_clinic.data }}</h2>
 {% endblock %}

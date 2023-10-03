@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h2>Каталог животных</h2>
+      <ul> {% for a in animal_card_list %}
+          <li>
+{#          <a href="{% url 'info' id=a.id %}">{{ a.services}}</a>#}
+              <a href="{{ a.get_absolute_url }}">{{ a.nickname}}</a>
+          <p>Возраст: {{ a.age }} лет</p>
+
+          </li>
+      {% endfor %}
+
+      </ul>
+
+
+
+{% endblock %}

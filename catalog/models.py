@@ -115,12 +115,16 @@ class Vet_clinic(models.Model):
     def display_doctors(self):
         res = ''
         for a in self.doctor.all():
-            res += a.surname+' '
+            res += a.name+' '+a.surname
         return res
     display_doctors.short_description = 'Врач'
+
+
 
     def get_abcolute_url(self):
         return reverse('info', args=[self.id])
 
+    # def get_abcolut_url(self):
+    #     return reverse('info', args=[self.id])
 
 

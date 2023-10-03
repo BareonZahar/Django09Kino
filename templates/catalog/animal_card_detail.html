@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+           <h1>VI TUT</h1>
+     <h2>Наш пациент {{ kino.title }}</h2>
+     <h2>Имя {{ kino.summary }}</h2>
+     <h2>Возраст {{ kino.director }}</h2>
+     <h2>Рос {{ kino.ager }}</h2>
+     <h2>Вес {{ kino.status }}</h2>
+     <h2>Статус пиотмца: {{ kino.display_actors }}</h2>
+     {% for actor in kino.actor.all %}
+        <p>{{ actor.fname }} // {{ actor.lname }}</p>
+     {% endfor %}
+{% endblock %}

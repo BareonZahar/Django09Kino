@@ -21,7 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='home'),
     path('vetclin/', views.Vetclinlist.as_view(),name='allvetclin'),
-    # path('vetclin/<slug:pk>/',views.VetcDetail.as_view(),name='infor'),
-    path('vetclin/<int:id>/',views.info,name='info'),
+    path('animal/', views.Animal_cardlist.as_view(), name='allanimal'),
+    path('animal/<slug:pk>/',views.Animal_cardDetail.as_view(),name='info'),
+    path('vetclin/<slug:pk>/',views.VetcDetail.as_view(),name='info'),
+    # path('vetclin/<int:id>/',views.info,name='info'),
 
 ]
