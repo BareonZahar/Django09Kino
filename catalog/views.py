@@ -19,9 +19,32 @@ def index(req):
     # user.save()
     return render(req,'index.html' , context=data)
 
-# def allkino(req):
-#     return redirect('home')
 
+def status(req):
+    k1 = Status.objects.all()
+    data = {'podpiska':k1}
+    return render(req,'podpiska.html',data)
+
+def prosmotr(req,id1,id2,id3):
+    print(id1,id2,id3)
+    mas = ['бесплатно','базовая','супер']  #  kino id2
+    mas2 = ['free','based','super']   #  user  id3  status
+    if id3 != 0:
+        status = User.objects.get(id=id3)  #  нашли юзера
+        print(status)
+        status = status.groups.all()  # нашли его подписки
+        print(status)
+        status = status[0].id  #  нашли айди его подписки(она одна)
+        print(status)
+    else:
+        if id3 == 0:
+            status = 1
+    if status >= id2:
+        print('ok')
+    else:
+        print('nelzy')
+
+    return render(req,'index.html')
 
 from django.views import generic
 

@@ -5,11 +5,11 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock %}
 {% block content %}
-    <h2>Все Режисеры</h2>
+    <h2 class="po">Все режисеры</h2>
        <ul>{% for direc in director_list %}
          <li>
-             <a href="{{ direc.get_absolute_url }}"><p>{{ direc.fname }}</p></a>
-         <p>{{ direc.lname}}</p>
+             <a href="{{ direc.get_absolute_url }}"><p class="lo">{{ direc.fname }}</p></a>
+         <p class="lo">{{ direc.lname}}</p>
          </li>
         {% endfor %}
     </ul>

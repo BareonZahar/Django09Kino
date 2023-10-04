@@ -1,14 +1,26 @@
 {% extends 'index.html' %}
-
+{%  block head %}
+     {% load static %}
+    <title>Актеры</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
 {% block content %}
-        <h2>Actor_Detail</h2>
-     <h2>Фильм {{ kino.title }}</h2>
-     <h2>Описание {{ kino.summary }}</h2>
-     <h2>Режисер {{ kino.director }}</h2>
-     <h2>Рейтинг {{ kino.ager }}</h2>
-     <h2>Уровень подписки {{ kino.status }}</h2>
-     <h2>Актеры: {{ kino.display_actors }}</h2>
-     {% for actor in kino.actor.all %}
-        <p>{{ actor.fname }} // {{ actor.lname }}</p>
+        <h2>Про актера</h2>
+         <h2>Имя актера: {{ actor.fname }}</h2>
+         <h2>Фамилия актера: {{ actor.lname }}</h2>
+         <h2>Год рождения: {{ actor.born }}</h2>
+         <h2>Страна: {{ actor.country }}</h2>
+
+     {% for kino in actor.kino_set.all %}
+{#          <link rel="stylesheet" href="{% static 'css/main.css' %}">#}
+         <div class="foto">
+         <h2>Фильм в котором снимался:  </h2>
+         <img src="{% static kino.image %}" alt="" width="200">
+         </div>
+         <p> название фильма: {{ kino.title }}</p>
+         <p> жанр: {{ kino.genre }}</p>
+         <p> страна фильма: {{ kino.country }}</p>
+         <p> в каком году снимали: {{ kino.year }}</p>
+         <p> рейтинг фильма: {{ kino.rating }}</p>
      {% endfor %}
 {% endblock %}

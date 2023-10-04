@@ -1,15 +1,67 @@
+body{
+    background-color: dimgray;
+    position: relative;
+}
+h4{
+    color: darkgoldenrod;
+}
+h6{
+    color: chartreuse;
+}
 .menu{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    background-color: gainsboro;
+    background-color: green;
     line-height: 2em;
 }
 .menu a{
     text-decoration: none;
-    color: black;
+    color: darkorange;
     font-size: 1.5em;
 }
 .menu a:hover{
     background-color: yellow;
+}
+.foto{
+    position: absolute;
+    margin-left: 500px;
+    margin-top: -250px;
+}
+h2{
+    color: aquamarine;
+}
+p{
+    font-size: 20px;
+    color: chartreuse;
+}
+.ok{
+    color: darkblue;
+    text-align: center;
+    font-size: 35px;
+
+}
+.po{
+    text-align: center;
+    font-size: 35px;
+}
+.lo{
+  font-size: 25px;
+}
+ul{
+    font-size: 25px;
+    color: darkorange;
+    display:flex;
+    justify-content:space-evenly;
+}
+li a{
+    color:aqua;
+}
+.opis{
+    position: absolute;
+    margin-left: 500px;
+    margin-top: -550px;
+    width: 500px;
+    font-size: 25px;
+    color: burlywood;
 }
