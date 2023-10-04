@@ -15,6 +15,9 @@ class Director(models.Model):
     def __str__(self):
         return f'{self.lname},{self.fname}'
 
+    def get_absolute_url(self):
+        return reverse('intdir', args=[self.id])
+
 
 class Actor(models.Model):
     fname = models.CharField(max_length=20, verbose_name='Имя')

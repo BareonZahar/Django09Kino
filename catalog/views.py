@@ -43,6 +43,9 @@ class ActorDetail(generic.DetailView):
 class Directorlist(generic.ListView):
     model = Director
 
+class DirectorDetail(generic.DetailView):
+    model = Director
+
 from django.http import HttpResponse
 # def info(req,id):
 #     film = Kino.objects.get(id=id)

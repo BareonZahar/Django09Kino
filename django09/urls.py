@@ -27,6 +27,7 @@ urlpatterns = [
     # path('actor/', views.proactor,name='pro'),
     path('actor/',views.Actorlist.as_view(),name='actor'),
     path('actor/<slug:pk>/<str:lname>', views.ActorDetail.as_view(),name='infor'),
-    path('director',views.Directorlist.as_view(),name='director')
+    path('director/',views.Directorlist.as_view(),name='director'),
+    path('director/<slug:pk>',views.DirectorDetail.as_view(), name='intdir')
 
 ]
