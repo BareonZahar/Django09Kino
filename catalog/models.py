@@ -25,6 +25,9 @@ class Actor(models.Model):
     def __str__(self):
         return self.lname
 
+    def get_absolute_url(self):
+        return reverse('infor', args=[self.id, self.lname])
+
 
 class Status(models.Model):
     VIBOR = (('бесплатно','бесплатно'),('базовая','базовая'),('супер','супер'))
@@ -75,9 +78,6 @@ class Kino(models.Model):
     def get_absolute_url(self):
         return reverse('info', args=[self.id, self.title])
         # return f'kino/{self.id}/{self.title}'
-
-    def get_actor_url(self):
-        return reverse('infor', args=[self.display_actors])
 
 
 

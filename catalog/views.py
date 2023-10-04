@@ -47,16 +47,16 @@ from django.http import HttpResponse
 # def info(req,id):
 #     film = Kino.objects.get(id=id)
 #     return HttpResponse(film.title)
-def proactor(req):
-    name = Actor.objects.all()
-    # gim = ''
-    # for i in name:
-    #     gim = i.fname +'  ' +i.lname
-    #     # gam
-    #     print(gim)
-    data = {'k1':name}
-    return render(req,'new.html',context=data)
-
+# def proactor(req):
+#     name = Actor.objects.all()
+#     # gim = ''
+#     # for i in name:
+#     #     gim = i.fname +'  ' +i.lname
+#     #     # gam
+#     #     print(gim)
+#     data = {'k1':name}
+#     return render(req,'new.html',context=data)
+#
 
 
 
