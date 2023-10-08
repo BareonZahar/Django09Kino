@@ -12,6 +12,7 @@
      {% block menu %}
        <div class="menu">
            <a href="{% url 'home' %}">Главная</a>
+           <a href="{% url 'ganry' %}">Жанр</a>
            <a href="{% url 'admin:index' %}">Админ</a>
            <a href="{% url 'allkino' %}">Фильмы</a>
            <a href="{% url 'actor' %}">Актеры</a>
@@ -47,6 +48,22 @@
          <h2>а также смотреть фильмы в бессплатном разделе</h2>
          <h2>Желаем хорошего просмотра. </h2>
          </div>
- {% endblock content %}
+           <div class="ganry">
+               <h1>Фильмы по жанру:</h1>
+                  {% for i in ganry %}
+                     <h2>{{ i.name }}</h2>
+                         <a href="{% url 'pro_ganry'%}">
+                             <button>Смотреть</button>
+                         </a>
+                        <div class="card1">
+                     {% for kino in i.kino_set.all %}
+                        <div >
+                             <h4 class="card2">{{ kino }}</h4>
+                        </div>
+                     {% endfor %}
+                      </div>
+                  {% endfor %}
+           </div>
+     {% endblock content %}
 </body>
 </html>

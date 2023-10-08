@@ -22,8 +22,27 @@ def index(req):
     return render(req,'index.html' , context=data)
 
 
+def ganry(req):
+    k2 = Genre.objects.all()
+    print(k2, 'нет ничего')
+    data = {'ganry':k2}
+    return render(req,'index.html',data)
+
+def pro_ganry(req):
+    k1 = Genre.objects.all()
+    for i in k1:
+        k2 = ''
+        data = {}
+        for kino in i.kino_set.all():
+            k2 = kino
+        data = {'k2':k2}
+        return render(req, 'new.html', data)
+
+
+
 def status(req):
     k1 = Status.objects.all()
+    print(k1)
     data = {'podpiska':k1}
     return render(req,'podpiska.html',data)
 

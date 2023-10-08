@@ -29,6 +29,8 @@ urlpatterns = [
     path('actor/<slug:pk>/<str:lname>', views.ActorDetail.as_view(),name='infor'),
     path('director/',views.Directorlist.as_view(),name='director'),
     path('director/<slug:pk>',views.DirectorDetail.as_view(), name='intdir'),
+    path('ganry/',views.ganry,name='ganry'),
+    path('ganry/pro_ganry/',views.pro_ganry,name='pro_ganry'),
     path('status/', views.status, name='status'),
     path('status/prosmotr/<int:id1>/<int:id2>/<int:id3>/', views.prosmotr, name='prosmotr'),
 
