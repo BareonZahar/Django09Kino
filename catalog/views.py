@@ -87,7 +87,7 @@ class ActorDetail(generic.DetailView):
 
 class Directorlist(generic.ListView):
     model = Director
-    paginate_by = 2
+    paginate_by = 7
 
 class DirectorDetail(generic.DetailView):
     model = Director
