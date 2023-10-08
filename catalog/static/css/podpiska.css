@@ -18,7 +18,7 @@
     border: 2px solid;
     width: 10%;
     object-fit: contain;
-    background-color: rgba(139, 0, 139, 0.47);
+    background-color: rgba(139, 0, 139, 0.6);
 }
 .card img{
     background-size: cover;
@@ -37,4 +37,12 @@ h1{
 .vs{
     color:chartreuse;
     font-size: 20px;
+}
+.podp{
+    background-color: rgba(255, 255, 0, 0.51);
+
+
+
+
+
 }
