@@ -10,11 +10,13 @@ def index(req):
     # username = req.user.first_name
     if req.user.username:
         username = req.user.first_name
+        # print(req.user.first_name,'#',req.user.id)  #   Для проверки что выводит
     else:
         username = 'Гость'
+        # print(req.user.id)   #  Для проверки что выводит
     data = {'k1':numkino,'k2':numactor,'k3':numfree,'username':username}
     # user = User.objects.create_user('user2','user2@mail.ru','useruser')
-    # user.first_name = 'Vlad'
+    # user.first_name = 'Vlad'  #  ------------Програмно регистрировали пользователя -------------
     # user.last_name = 'Petrov'
     # user.save()
     return render(req,'index.html' , context=data)
@@ -59,12 +61,14 @@ class KinoDetail(generic.DetailView):
 
 class Actorlist(generic.ListView):
     model =Actor
+    paginate_by = 2
 
 class ActorDetail(generic.DetailView):
     model = Actor
 
 class Directorlist(generic.ListView):
     model = Director
+    paginate_by = 2
 
 class DirectorDetail(generic.DetailView):
     model = Director

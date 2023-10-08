@@ -10,6 +10,7 @@ admin.site.register(AgeRate)
 # admin.site.register(Kino)
 admin.site.register(Country)
 
+
 class Actoradmin(admin.ModelAdmin):
     list_display = ('fname','lname','born') #  столбики в панели админа
     list_display_links = ('fname','lname')  #   работают как ссылки
@@ -26,7 +27,7 @@ class Kinoadmin(admin.ModelAdmin):
     list_filter = ('status','genre','rating')
     fieldsets = (('о фильме',{'fields':('title','summary','actor')}),
                 ('Рейтинг',{'fields':('rating','ager','status')}),
-                 ('Остальное',{'fields':('genre','country','director','year')}))
+                 ('Остальное',{'fields':('genre','country','director','year','image')}))
 admin.site.register(Kino, Kinoadmin)
 
 class Stinline(admin.TabularInline):

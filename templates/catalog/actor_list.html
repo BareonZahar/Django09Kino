@@ -7,35 +7,40 @@
 {% block content %}
     <h2 class="ok">Все актеры</h2>
        <ul>{% for actor in actor_list %}
+           <div class="actor_card">
          <li>
               <a href="{{ actor.get_absolute_url }}">{{ actor.fname }} {{ actor.lname }}</a>
+             <p class="st">Родился :</p>
             <p>{{ actor.born }}</p>
-         <p>{{ actor.country }} -- {{ actor.lname }}</p>
+         <p class="st">В какой стране: </p>
+         <P >{{ actor.country }}</P>
          </li>
+           </div>
         {% endfor %}
     </ul>
+    <h3 class="info_actor">Вы можете посмотреть более подробную информацию об актере</h3>
+    <h3 class="info_actor"> кликнув на <b>актера</b></h3>
 
 {%  if is_paginated %}
 
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">пред</a>
+                <a class="per" href="?page=1">&laquo; Первая</a>
+                <a class="sled" href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
             {% endif %}
 
             <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
             </span>
 
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">след</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                <a class="sled" href="?page={{ page_obj.next_page_number }}">следующая</a>
+                <a class="per" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
             {% endif %}
         </span>
     </div>
     {% endif %}
-
 {% endblock %}
 
 {#{% url 'proactor' %}#}

@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
     {% endblock %}
 </head>
-<body>
+<body id="bg" style="background-image: url('{% static "/img/kino.jpg" %}');">
      {% block menu %}
        <div class="menu">
            <a href="{% url 'home' %}">Главная</a>
@@ -23,12 +23,29 @@
             {% endif %}
        </div>
      {% endblock menu %}
+     {% block  sentr %}
+         <div class="fotoGlavn">
+{#             <img src="{% static 'img/koral.jpg' %}" alt="" width="1400" height="300">#}
+
+         </div>
+     {% endblock sentr %}
      {% block content %}
+         <div class="content">
          <h1>Привет {{ username }} !</h1>
-     <h2>Каталог фильмов</h2>
+         <h2>Ты можешь авторизироваться,</h2>
+         <h2>Что позволит тебе</h2>
+         <h2>Пользоваться всеми услугпми сайта</h2>
+             <h2>На сайте:</h2>
          <h2>На сайте {{ k1 }} фильмов</h2>
-         <h2>На сайте {{ k2 }} актеров</h2>
-         <h2>На сайте {{ k3 }} фильмов бесплатно</h2>
+{#         <h2>На сайте {{ k2 }} актеров</h2>#}
+         <h2>Из них:  {{ k3 }} фильма бесплатно</h2>
+         </div>
+         <div class="polz">
+         <h1>Гость сайта может:</h1>
+         <h2>пользоваться всеми контентами сайта</h2>
+         <h2>а также смотреть фильмы в бессплатном разделе</h2>
+         <h2>Желаем хорошего просмотра. </h2>
+         </div>
  {% endblock content %}
 </body>
 </html>

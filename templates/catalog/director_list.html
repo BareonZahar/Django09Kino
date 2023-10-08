@@ -6,12 +6,33 @@
 {% endblock %}
 {% block content %}
     <h2 class="po">Все режисеры</h2>
-       <ul>{% for direc in director_list %}
-         <li>
-             <a href="{{ direc.get_absolute_url }}"><p class="lo">{{ direc.fname }}</p></a>
-         <p class="lo">{{ direc.lname}}</p>
+       <ul class="regh_ul">
+           {% for direc in director_list %}
+         <li class="regh">
+             <a href="{{ direc.get_absolute_url }}"><p class="lo">{{ direc.fname }}  {{ direc.lname}}</p></a>
+{#         <p class="lo">{{ direc.lname}}</p>#}
          </li>
-        {% endfor %}
-    </ul>
+       {% endfor %}
+       </ul>
 
-{% endblock %}
+{%  if is_paginated %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class="per" href="?page=1">&laquo; первая</a>
+                <a class="sled" href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a class="per" href="?page={{ page_obj.next_page_number }}">следующая</a>
+                <a class="sled" class="per" href="?page={{ page_obj.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% endif %}
+{% endblock content%}

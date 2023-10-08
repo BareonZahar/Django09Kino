@@ -1,12 +1,24 @@
 body{
-    background-color: dimgray;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
     position: relative;
+
 }
-h4{
-    color: darkgoldenrod;
+.content{
+
+    /*text-align: right;*/
+    width: 500px;
+    margin-left: 850px;
+    text-align: center;
+    background-color: rgba(139, 0, 0, 0.25);
+    border-radius: 50px ;
+
+    /*border: 5px solid lawngreen;*/
 }
-h6{
-    color: chartreuse;
+.content h1{
+    color: azure;
 }
 .menu{
     display: flex;
@@ -23,20 +35,25 @@ h6{
 .menu a:hover{
     background-color: yellow;
 }
-.foto{
+div.foto{
     position: absolute;
-    margin-left: 500px;
-    margin-top: -250px;
+    margin-left: 550px;
+    margin-top: -470px;
+    border: 2px solid darkred;
+    background-color: rgba(0, 128, 0, 0.34);
+}
+.foto img{
+    margin-left: 50px;
 }
 h2{
     color: aquamarine;
 }
 p{
-    font-size: 20px;
-    color: chartreuse;
+    font-size: 25px;
+    color: azure;
 }
 .ok{
-    color: darkblue;
+    color: azure;
     text-align: center;
     font-size: 35px;
 
@@ -49,13 +66,27 @@ p{
   font-size: 25px;
 }
 ul{
+    text-align: center;
     font-size: 25px;
+    list-style-type: none;
     color: darkorange;
     display:flex;
     justify-content:space-evenly;
+
 }
+/*.kat_film{*/
+/*    background-color: rgba(0, 128, 0, 0.68);*/
+/*    border-radius: 20px;*/
+/*    height: 50px;*/
+/*}*/
 li a{
     color:aqua;
+    text-decoration: none;
+
+}
+li a:hover{
+    background-color: gold;
+    color: crimson;
 }
 .opis{
     position: absolute;
@@ -64,4 +95,106 @@ li a{
     width: 500px;
     font-size: 25px;
     color: burlywood;
+}
+.st{
+    color:gold;
+}
+.actor_card{
+    border: 2px solid darkorange;
+    width: 200px;
+    background-color: rgba(100, 149, 237, 0.87);
+}
+.pagination{
+    text-align: center;
+    background-color: gold;
+    font-size: 25px;
+}
+.katalog{
+    text-align: center;
+    font-size: 40px;
+    color: lawngreen;
+    box-shadow: 0 15px blueviolet;
+}
+.info_actor{
+    text-align: center;
+    color: darkorange;
+    font-size: 25px;
+}
+.pro_actor{
+    border: solid 2px chocolate;
+    padding-left: 50px;
+    background-color: rgba(210, 105, 30, 0.34);
+}
+.pro{
+    padding-left: 50px;
+    font-size: 30px;
+    color: deeppink;
+}
+.glav{
+    text-align: center;
+    background-color: rgba(47, 79, 79, 0.54);
+}
+.glav1{
+    text-align: center;
+    font-size: 30px;
+    color: gold;
+    background-color: rgba(47, 79, 79, 0.54);
+}
+.glav2{
+    text-align: center;
+    color: yellow;
+    font-size: 30px;
+    background-color: rgba(47, 79, 79, 0.54);
+}
+.opis{
+    margin-top: 0;
+    text-align: center;
+    justify-content:space-evenly;
+    border: 2px solid blueviolet;
+    border-radius: 20px;
+    background-color: rgba(0, 128, 0, 0.83);
+}
+i{
+    color: blue;
+}
+b{
+    color: crimson;
+}
+.regh_ul{
+    background-color: rgba(139, 0, 0, 0.33);
+}
+.regh{
+    background-color: rgba(255, 255, 0, 0.5);
+    border-radius: 20px;
+}
+.regh:hover{
+    background-color: darkred;
+    transform:scale(1.3);
+}
+.reg_der{
+    color: chartreuse;
+}
+.polz{
+    background-color: rgba(138, 43, 226, 0.3);
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 600px;
+    text-align: center;
+    border-radius: 50px;
+}
+.polz h1{
+    color: azure;
+}
+.per{
+    text-decoration: none;
+    font-size: 25px;
+    color:darkred;
+}
+.sled{
+    text-decoration: none;
+    font-size: 25px;
+    color: cornflowerblue;
+}
+.current{
+    color: darkmagenta;
 }

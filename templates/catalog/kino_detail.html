@@ -2,13 +2,13 @@
 
 {% block content %}
 
-     <h2>Фильм {{ kino.title }}</h2>
-     <h2>Описание {{ kino.summary }}</h2>
-     <h2>Режисер {{ kino.director }}</h2>
-     <h2>Рейтинг {{ kino.ager }}</h2>
-     <h2>Уровень подписки {{ kino.status }}</h2>
-     <h2>Актеры: {{ kino.display_actors }}</h2>
-     {% for actor in kino.actor.all %}
-        <p>{{ actor.fname }} // {{ actor.lname }}</p>
-     {% endfor %}
+    <h2 class="glav1">Фильм: <b>{{ kino.title }}</b></h2>
+     <h2 class="glav">Режисер: {{ kino.director }}</h2>
+     <h2 class="glav">Рейтинг: {{ kino.ager }}</h2>
+     <h2 class="glav2">Уровень подписки: <i>{{ kino.status }}</i></h2>
+     <h2 class="glav">Актеры: {{ kino.display_actors }}</h2>
+    <h2 class="opis"><i>Описание:</i>  {{ kino.summary }}</h2>
+{#     {% for actor in kino.actor.all %}#}
+{#        <p>{{ actor.fname }} // {{ actor.lname }}</p>#}
+{#     {% endfor %}#}
 {% endblock %}

@@ -5,22 +5,24 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock %}
 {% block content %}
-        <h2>Про актера</h2>
-         <h2>Имя актера: {{ actor.fname }}</h2>
-         <h2>Фамилия актера: {{ actor.lname }}</h2>
-         <h2>Год рождения: {{ actor.born }}</h2>
-         <h2>Страна: {{ actor.country }}</h2>
+         <div class="pro_actor">
+            <h2 class="pro">Про актера</h2>
+             <h2>Имя актера: {{ actor.fname }}</h2>
+             <h2>Фамилия актера: {{ actor.lname }}</h2>
+             <h2>Год рождения: {{ actor.born }}</h2>
+             <h2>Страна: {{ actor.country }}</h2>
 
-     {% for kino in actor.kino_set.all %}
-{#          <link rel="stylesheet" href="{% static 'css/main.css' %}">#}
-         <div class="foto">
-         <h2>Фильм в котором снимался:  </h2>
-         <img src="{% static kino.image %}" alt="" width="200">
+         {% for kino in actor.kino_set.all %}
+    {#          <link rel="stylesheet" href="{% static 'css/main.css' %}">#}
+             <p> название фильма: {{ kino.title }}</p>
+             <p> жанр: {{ kino.genre }}</p>
+             <p> страна фильма: {{ kino.country }}</p>
+             <p> в каком году снимали: {{ kino.year }}</p>
+             <p> рейтинг фильма: {{ kino.rating }}</p>
          </div>
-         <p> название фильма: {{ kino.title }}</p>
-         <p> жанр: {{ kino.genre }}</p>
-         <p> страна фильма: {{ kino.country }}</p>
-         <p> в каком году снимали: {{ kino.year }}</p>
-         <p> рейтинг фильма: {{ kino.rating }}</p>
+         <div class="foto">
+             <h2>Фильм в котором снимался:  </h2>
+             <img src="{% static kino.image %}" alt="" width="200">
+         </div>
      {% endfor %}
 {% endblock %}
