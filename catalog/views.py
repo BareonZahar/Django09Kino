@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import *
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Group
 # Create your views here.
 def index(req):
     numkino = Kino.objects.all().count()
@@ -28,15 +28,11 @@ def ganry(req):
     data = {'ganry':k2}
     return render(req,'index.html',data)
 
-def pro_ganry(req):
-    k1 = Genre.objects.all()
-    for i in k1:
-        k2 = ''
-        data = {}
-        for kino in i.kino_set.all():
-            k2 = kino
-        data = {'k2':k2}
-        return render(req, 'new.html', data)
+def pro_ganry(req,id):
+    k1 = Genre.objects.get(id=id)
+    k2 = k1.kino_set.all()
+    data = {'k2':k2}
+    return render(req, 'new.html', data)
 
 
 
@@ -62,17 +58,34 @@ def prosmotr(req,id1,id2,id3):
             status = 1
     if status >= id2:
         print('ok')
+        permission = True
     else:
         print('nelzy')
+        permission = False
+    k1 = Kino.objects.get(id=id1).title
+    k2 = Group.objects.get(id=status).name
+    k3 = Status.objects.get(id=id2).name
+    data = {'kino':k1,'status':k2,'statuskino':k3,'prava':permission}
+    return render(req,'prosmotr.html',data)
 
-    return render(req,'index.html')
+def buy(req,type):
+    usid = req.user.id  #  находим номер текущего пользователя
+    user123 = User.objects.get(id=usid)  #  находим его в табличке юзер
+    statusnow = user123.groups.all()[0].id   #  находим номер его погдписке (группы)
+    grold = Group.objects.get(id=statusnow)  # находим его подписку в таблице group
+    grold.user_set.remove(user123)  # удаляем старую подписку
+    grnew = Group.objects.get(id=type)  #   находим новую подписку в таблице group
+    grnew.user_set.add(user123)   # добовляем новую подписку
+    k1 = grnew.name
+    data = {'podpiska':k1}
+    return render(req,'buy.html',data)
 
 from django.views import generic
 
 
 class Kinolist123(generic.ListView):
     model = Kino
-    paginate_by = 2
+    paginate_by = 5
 
 
 class KinoDetail(generic.DetailView):
@@ -80,7 +93,7 @@ class KinoDetail(generic.DetailView):
 
 class Actorlist(generic.ListView):
     model =Actor
-    paginate_by = 2
+    paginate_by = 4
 
 class ActorDetail(generic.DetailView):
     model = Actor
