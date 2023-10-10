@@ -1,6 +1,23 @@
 {% extends 'index.html' %}
 {% block content %}
+     <div class="ganry">
+              <h1>Фильмы по жанру: </h1>
+                  {% for i in ganry %}
+                     <h2>{{ i.name }}</h2>
+                         <a href="{% url 'pro_ganry' i.id%}">
+                             <button>Смотреть</button>
+                         </a>
+{#                        <div class="card1">#}
+{#                     {% for kino in i.kino_set.all %}#}
+{#                        <div >#}
+{#                             <h4 class="card2">{{ kino }}</h4>#}
+{#                        </div>#}
+{#                     {% endfor %}#}
+{#                      </div>#}
+                  {% endfor %}
+
     {% for one in k2 %}
-        <h1 style="color: antiquewhite">{{ one.title }}</h1>
+        <h1 style="color: yellow">{{ one.title }}</h1>
     {% endfor %}
+      </div>
 {% endblock %}

@@ -207,3 +207,16 @@ b{
 h4{
     color: crimson;
 }
+.ganry button{
+    background-color: yellow;
+    font-size: 15px;
+    color: darkgreen;
+}
+.ganry button:hover{
+     transform: rotate(25deg);
+}
+.ganry h1{
+    text-align: center;
+    color: aqua;
+    background-color: rgba(0, 128, 0, 0.71);
+}

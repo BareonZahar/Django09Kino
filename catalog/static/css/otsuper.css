@@ -1,0 +1,43 @@
+body{
+    position: relative;
+}
+.user{
+    text-align: center;
+    background-color: rgba(255, 255, 0, 0.71);
+    width: 300px;
+}
+.user h4{
+    font-size: 20px;
+    font-family: Calibri;
+}
+.kupitpodpis{
+    position: absolute;
+    text-align: center;
+    background-color: rgba(124, 252, 0, 0.75);
+    font-size: 20px;
+    font-family: Calibri;
+    margin-left: 350px;
+    width: 200px;
+    margin-top: -270px;
+}
+.otkazpodris{
+    text-align: center;
+    position: absolute;
+    font-family:Arial;
+    margin-left: 600px;
+    width: 200px;
+    margin-top: -270px;
+    background-color: rgba(0, 255, 255, 0.71);
+}
+a{
+    text-decoration: none;
+    font-size: 25px;
+    color: crimson;
+}
+a:hover{
+    color: white;
+    box-shadow: 0 10px darkblue;
+}
+i{
+    font-size: 35px;
+}

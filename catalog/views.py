@@ -26,7 +26,7 @@ def ganry(req):
     k2 = Genre.objects.all()
     print(k2, 'нет ничего')
     data = {'ganry':k2}
-    return render(req,'index.html',data)
+    return render(req,'new.html',data)
 
 def pro_ganry(req,id):
     k1 = Genre.objects.get(id=id)
@@ -68,6 +68,23 @@ def prosmotr(req,id1,id2,id3):
     data = {'kino':k1,'status':k2,'statuskino':k3,'prava':permission}
     return render(req,'prosmotr.html',data)
 
+
+def kuppodpiska(req):
+    return render(req,'kuppodpiska.html')
+
+def otsuper(req,type):
+    usid = req.user.id  # находим номер текущего пользователя
+    user123 = User.objects.get(id=usid)  # находим его в табличке юзер
+    statusnow = user123.groups.all()[0].id  # находим номер его погдписке (группы)
+    grold = Group.objects.get(id=statusnow)  # находим его подписку в таблице group
+    grold.user_set.remove(user123)  # удаляем старую подписку
+    grnew = Group.objects.get(id=type)  # находим новую подписку в таблице group
+    grnew.user_set.add(user123)  # добовляем новую подписку
+    k1 = grnew.name
+    data = {'otsuper':k1}
+    return render(req,'kuppodpiska.html',data)
+
+
 def buy(req,type):
     usid = req.user.id  #  находим номер текущего пользователя
     user123 = User.objects.get(id=usid)  #  находим его в табличке юзер
@@ -78,7 +95,7 @@ def buy(req,type):
     grnew.user_set.add(user123)   # добовляем новую подписку
     k1 = grnew.name
     data = {'podpiska':k1}
-    return render(req,'buy.html',data)
+    return render(req,'kuppodpiska.html',data)
 
 from django.views import generic
 
