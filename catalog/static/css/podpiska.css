@@ -13,14 +13,16 @@
     /*background: url('{% static "kino.image" %}');*/
     text-align: center;
     border: 2px solid;
-    width: 10%;
+    width: 20%;
     object-fit: contain;
     overflow: hidden;
     background-color: rgba(139, 0, 139, 0.6);
+    margin-top: 50px;
 }
 .card img{
     background-size: cover;
     width: 100%;
+
 }
 h1{
     text-align: center;

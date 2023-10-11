@@ -97,6 +97,37 @@ def buy(req,type):
     data = {'podpiska':k1}
     return render(req,'kuppodpiska.html',data)
 
+from .form import SignUpform
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate,login
+def registr(req):
+    # anketa = SignUpform
+    if req.POST:
+        anketa = SignUpform(req.POST)
+        if anketa.is_valid():
+            anketa.save()
+            k1 = anketa.cleaned_data.get('username')
+            k2 = anketa.cleaned_data.get('password1')
+            k3 = anketa.cleaned_data.get('first_name')
+            k4 = anketa.cleaned_data.get('last_name')
+            k5 = anketa.cleaned_data.get('email')
+            user = authenticate(username=k1, password=k2)  # строчка регистрирует сохраняет пользователя
+            man = User.objects.get(username=k1)  # найдем нового юзера
+            #  заполним поля за него
+            man.email = k5
+            man.first_name = k3
+            man.last_name = k4
+            man.save()
+            login(req,user)          #    вход на сайт
+            group = Group.objects.get(id=1)   #   находим бесплатную подписку
+            group.user_set.add(man)       #   записываем юзера в подписку
+            return redirect('home')
+    else:
+        anketa = SignUpform()
+    data = {'regform':anketa}
+    return render(req,'registration/registration.html',data)
+
+
 from django.views import generic
 
 

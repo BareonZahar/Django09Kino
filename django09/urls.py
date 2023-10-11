@@ -35,6 +35,7 @@ urlpatterns = [
     path('status/prosmotr/<int:id1>/<int:id2>/<int:id3>/', views.prosmotr, name='prosmotr'),
     path('status/buy/<int:type>/', views.buy, name='buystatus'),
     path('kuppodpiska/', views.kuppodpiska,name='kuppodpiska'),
-    path('otsuper/<int:type>/',views.otsuper,name='otsuper')
+    path('otsuper/<int:type>/',views.otsuper,name='otsuper'),
+    path('user/registr', views.registr, name='registr'),
 
 ]

@@ -18,7 +18,7 @@
        {% if user.groups.all.0.id == 1%}
            <h4><a href="{% url 'buystatus' type=2%}">Купить базовую</a></h4>
            <h4><a href="{% url 'buystatus' type=3%}">Купить супер</a></h4>
-             {% elif  user.groups.all.0.id == 2 %}
+       {% elif  user.groups.all.0.id == 2 %}
            <h4><a href="{% url 'buystatus' type=3%}">Купить супер</a></h4>
 {#        {% else %}#}
 {#            <h4>Приятного просмотра</h4>#}
