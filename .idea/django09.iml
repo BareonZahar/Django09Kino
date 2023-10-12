@@ -18,6 +18,9 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="video-js" level="application" />
+    <orderEntry type="library" name="video" level="application" />
+    <orderEntry type="library" name="@videojs/themes" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
