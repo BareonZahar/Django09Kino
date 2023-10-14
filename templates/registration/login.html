@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-  <h2>Вход</h2>
+{% extends 'index.html' %}
+{% load static %}
+ {%  block head %}
+    <title>Вход</title>
+       <link rel="stylesheet" href="{% static 'css/main.css' %}">
+     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    {% endblock %}
+{% block content %}
+    <div class="vhod">
+  <h2 class="neonTex">Вход для пользователя</h2>
   <form action="{% url 'login' %}" method="post">
       {% csrf_token %}
       <table>
@@ -21,8 +23,10 @@
       <input type="submit" value="вход">
   </form>
   <h2>
-      <a href="{% url 'registr' %}">Регистрация</a>
+      <a class="neonTex" href="{% url 'registr' %}">Регистрация</a>
   </h2>
+      <i class="neonTex">для нового пользователя</i>
+    </div>
+{% endblock content %}
 {#{{ form }}#}
-</body>
-</html>
+

@@ -1,0 +1,80 @@
+h2{
+    text-align: center;
+    font-size: xxx-large;
+}
+table{
+    text-align: center;
+    background-color: dimgray;
+    color: aqua;
+}
+.vhod{
+    text-align: center;
+}
+form{
+   background-color: darkorange;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    font-size: xxx-large;
+    color: darkblue;
+}
+h2{
+    font-size: xxx-large;
+    color: darkred;
+    text-align: center;
+}
+h2 a{
+    color: yellow;
+}
+h2 a:hover{
+    background-color: blueviolet;
+    color: lime;
+}
+input:hover{
+    background-color: deeppink;
+    color: yellow;
+}
+i{
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    font-size: xx-large;
+    color: indigo;
+}
+td{
+    font-size: x-large;
+}
+.neonTex {
+  animation: flicker 1.5s infinite alternate;
+  color: yellow;
+}
+
+h1 {
+  font-size: 4.2rem;
+}
+
+/* Flickering animation */
+@keyframes flicker {
+
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px yellow,
+      0 0 19px lime,
+      0 0 40px #0fa,
+      0 0 80px deeppink,
+      0 0 90px blue,
+      0 0 100px darkgoldenrod,
+      0 0 150px darkred;
+
+  }
+
+  20%, 24%, 55% {
+      text-shadow: none;
+  }
+}
+
+
+/* Additional styling */

@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
     {% endblock %}
 </head>
-<body id="bg" style="background-image: url('{% static "/img/kino.jpg" %}');">
+<body id="bg" style="background-image: url('{% static "img/kino.jpg" %}');">
+
      {% block menu %}
        <div class="menu">
            <a href="{% url 'home' %}">Главная</a>
@@ -34,20 +35,25 @@
      {% block content %}
 
          <div class="content">
-         <h1>Привет {{ username }} !</h1>
-         <h2>Ты можешь авторизироваться,</h2>
-         <h2>Что позволит тебе</h2>
-         <h2>Пользоваться всеми услугпми сайта</h2>
-             <h1>На сайте:</h1>
-             <h2><b>{{ k1 }}</b> фильмов</h2>
+         <h1 class="neonText">Привет {{ username }} !</h1>
+         <h2 class="neonText">Ты можешь авторизироваться,</h2>
+         <h2 class="neonText">Что позволит тебе</h2>
+         <h2 class="neonText">Пользоваться всеми услугпми сайта</h2>
+             <h1 class="neonText">На сайте:</h1>
+             <h2 class="neonText"><b>{{ k1 }}</b> фильмов</h2>
 {#         <h2>На сайте {{ k2 }} актеров</h2>#}
-             <h2>Из них:  <b>{{ k3 }}</b> фильмов <i>бесплатно</i></h2>
+             <h2 class="neonText">Из них:  <b>{{ k3 }}</b> фильмов <i>бесплатно</i></h2>
          </div>
          <div class="polz">
-         <h1>Гость сайта может:</h1>
-         <h2>пользоваться всеми контентами сайта</h2>
-         <h2>а также смотреть фильмы в бессплатном разделе</h2>
-         <h2>Желаем хорошего просмотра. </h2>
+         <h1 class="neonText">Гость сайта может:</h1>
+         <h2 class="neonText">пользоваться всеми контентами сайта</h2>
+         <h2 class="neonText">а также смотреть фильмы в бессплатном разделе</h2>
+         <h2  class="neonText">Желаем хорошего просмотра. </h2>
+         </div>
+         <div class="video-js">
+             <video width="500" height="280" autoplay controls muted src="{% static "video/_import_61c2b9d42bc837.85238402_FPpreview.mp4" %}">
+
+             </video>
          </div>
 
      {% endblock content %}

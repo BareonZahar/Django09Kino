@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="{% static 'css/regist.css' %}">
     {% endblock %}
 {% block content %}
-
-     <h2>Регистрация</h2>
+<div class="fo">
+     <h2 class="neonTe">Регистрация</h2>
     <form action="" method="post" novalidate>
         {% csrf_token %}
         <table>
@@ -15,4 +15,5 @@
         </table>
         <input type="submit" value="отправить">
     </form>
+    </div>
 {% endblock %}

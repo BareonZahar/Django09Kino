@@ -14,13 +14,14 @@
 
          {% for kino in actor.kino_set.all %}
     {#          <link rel="stylesheet" href="{% static 'css/main.css' %}">#}
+
              <p> название фильма: {{ kino.title }}</p>
              <p> жанр: {{ kino.genre }}</p>
              <p> страна фильма: {{ kino.country }}</p>
              <p> в каком году снимали: {{ kino.year }}</p>
              <p> рейтинг фильма: {{ kino.rating }}</p>
-         </div>
-         <div class="foto">
+
+{#         <div class="foto">#}
              <h2>Фильм в котором снимался:  </h2>
              <img src="{% static kino.image %}" alt="" width="200">
          </div>

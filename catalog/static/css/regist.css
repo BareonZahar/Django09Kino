@@ -2,3 +2,52 @@ table{
     background-color: dimgray;
     color: yellow;
 }
+.fo{
+    text-align: center;
+}
+form{
+   background-color: darkorange;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+}
+input{
+    writing-mode: vertical-lr;
+}
+input:hover{
+    background-color: blue;
+    color: yellow;
+    transform: skew(25deg);
+}
+.neonTe {
+  animation: flicker 1.5s infinite alternate;
+  color:blueviolet;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+/* Flickering animation */
+@keyframes flicker {
+
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px yellow,
+      0 0 19px lime,
+      0 0 40px #0fa,
+      0 0 80px deeppink,
+      0 0 90px blue,
+      0 0 100px darkgoldenrod,
+      0 0 150px darkred;
+
+  }
+
+  20%, 24%, 55% {
+      text-shadow: none;
+  }
+}
+
+
