@@ -11,14 +11,15 @@
 <body id="bg" style="background-image: url('{% static "img/kino.jpg" %}');">
 
      {% block menu %}
+
        <div class="menu">
            <a href="{% url 'home' %}">Главная</a>
-           <a href="{% url 'ganry' %}">О жанрах</a>
+           <a href="{% url 'ganry' %}">Жанры</a>
            <a href="{% url 'admin:index' %}">Админ</a>
-           <a href="{% url 'allkino' %}">О фильмах</a>
-           <a href="{% url 'actor' %}">О актерах</a>
-           <a href="{% url 'director' %}">О режиссерах</a>
-           <a href="{% url 'status' %}">Каталог фильмов</a>
+           <a href="{% url 'allkino' %}">Фильмы</a>
+           <a href="{% url 'actor' %}">Актеры</a>
+           <a href="{% url 'director' %}">Режиссеры</a>
+           <a href="{% url 'status' %}">Каталог-фильмов</a>
            <a href="{% url 'kuppodpiska' %}">Купить-подписку</a>
            {% if not user.username %}
             <a href="{% url 'login' %}">Войти</a>
@@ -26,6 +27,7 @@
             <a href="{% url 'logout' %}">Выйти</a>
             {% endif %}
        </div>
+
      {% endblock menu %}
      {% block  sentr %}
          <div class="fotoGlavn">
@@ -41,9 +43,10 @@
          <h2 class="neonText">Пользоваться всеми услугпми сайта</h2>
              <h1 class="neonText">На сайте:</h1>
              <h2 class="neonText"><b>{{ k1 }}</b> фильмов</h2>
-{#         <h2>На сайте {{ k2 }} актеров</h2>#}
+         <h2>На сайте {{ k2 }} актеров</h2>
              <h2 class="neonText">Из них:  <b>{{ k3 }}</b> фильмов <i>бесплатно</i></h2>
          </div>
+
          <div class="polz">
          <h1 class="neonText">Гость сайта может:</h1>
          <h2 class="neonText">пользоваться всеми контентами сайта</h2>
@@ -51,7 +54,7 @@
          <h2  class="neonText">Желаем хорошего просмотра. </h2>
          </div>
          <div class="video-js">
-             <video width="500" height="280" autoplay controls muted src="{% static "video/_import_61c2b9d42bc837.85238402_FPpreview.mp4" %}">
+             <video width="500" height="280" autoplay loop controls="controls" muted src="{% static "video/imxotep-ubiystvennaya-pescanaya-burya-scena-7-10-mumiya-1999-hd_(VIDEOMIN.NET).mp4" %}">
 
              </video>
          </div>

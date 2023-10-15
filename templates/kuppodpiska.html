@@ -4,34 +4,62 @@
     <title>Форма подписки</title>
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" href="{% static 'css/otsuper.css' %}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     {% endblock %}
 {% block content %}
-    <div class="user">
-        <h1>Привет {{ user.username.title }}</h1>
+
+    <div class="container-fluid mt-3 ">
+{# user    #}
+        <h1 class="text-center">Привет {{ user.username.title }}</h1>
+        <div class="row">
+            <div class="col p-3 bg-primary text-white opacity-75">
+                <h1></h1>
         <h4> Имя:	{{ user.first_name }}</h4>
         <h4>Фамилия:	{{ user.last_name }}</h4>
         <h4>Email:	{{ user.email }}</h4>
         <h4>Подписка:	<i>{{ user.groups.all.0 }}</i></h4>
     </div>
-    <div class="kupitpodpis">
+    <div class="col p-3 bg-dark text-white opacity-75" >
+{# kupitpodpis    #}
         <h3>Купить подписку:</h3>
+     <div class="nav navbar-nav">
        {% if user.groups.all.0.id == 1%}
-           <h4><a href="{% url 'buystatus' type=2%}">Купить базовую</a></h4>
-           <h4><a href="{% url 'buystatus' type=3%}">Купить супер</a></h4>
+           <h4><a class="nav-link" href="{% url 'buystatus' type=3%}">супер</a></h4>
+           <h4><a class="nav-link" href="{% url 'buystatus' type=2%}">базовую</a></h4>
        {% elif  user.groups.all.0.id == 2 %}
-           <h4><a href="{% url 'buystatus' type=3%}">Купить супер</a></h4>
+           <h4><a class="nav-link" href="{% url 'buystatus' type=3%}">супер</a></h4>
 {#        {% else %}#}
 {#            <h4>Приятного просмотра</h4>#}
         {% endif %}
+     </div>
     </div>
-    <div class="otkazpodris">
+    <div class="col p-3 bg-primary text-white opacity-75">
+{# otkazpodris   #}
     <h3>Отказаться от подписки:</h3>
+    <div class="nav navbar-nav">
         {% if user.groups.all.0.id == 3 %}
-            <h3><a href="{% url 'otsuper' type=2%}">От Super</a></h3>
-             <h3><a href="{% url 'otsuper' type=1%}">От Based</a></h3>
+            <h4><a class="nav-link" href="{% url 'otsuper' type=1%}">базовой</a></h4>
+             <h4><a class="nav-link" href="{% url 'otsuper' type=2%}">супер</a></h4>
         {% elif user.groups.all.0.id == 2 %}
-    <h3><a href="{% url 'otsuper' type=1%}">От Based</a></h3>
+    <h4><a class="nav-link" href="{% url 'otsuper' type=1%}">базовой</a></h4>
+</div>
         {% endif %}
     </div>
-
+    </div>
+    </div>
+    <div class="row bg-danger">
+     {% if user.groups.all.0.id == 1 %}
+         <h1><i>Подписка - {{ user.groups.all.0 }}:</i></h1>
+            <p>В этой подписке <b>{{ k4 }}</b><i>бесплатных</i> фильмов </p>
+            <p>Название фильмов: </p>
+     {% elif user.groups.all.0.id == 2 %}
+         <h1><i>Подписка - {{ user.groups.all.0 }}:</i></h1>
+            <p>В этой подписке <b>{{ k4 }}</b><i>базовых</i> фильмов </p>
+            <p>Название фильмов: </p>
+     {% elif user.groups.all.0.id == 3 %}
+         <h1><i>Подписка - {{ user.groups.all.0 }}:</i></h1>
+            <p>В этой подписке <b>{{ k4 }}</b><i>супер</i> фильмов </p>
+            <p>Название фильмов: </p>
+    </div>
+     {% endif %}
 {% endblock content %}

@@ -70,7 +70,53 @@ def prosmotr(req,id1,id2,id3):
 
 
 def kuppodpiska(req):
-    return render(req,'kuppodpiska.html')
+    return render(req, 'kuppodpiska.html')
+    # if id3 != 0:
+    #     status = User.objects.get(id=id3)  # нашли юзера
+    #     print(status)
+    #     status = status.groups.all()  # нашли его подписки
+    #     print(status)
+    #     status = status[0].id  # нашли айди его подписки(она одна)
+    #     print(status)
+    # k3 = Group.objects.get(status)
+    # k2 = Status.objects.get(id=id2).name
+    # k4 = Kino.objects.get(id2).title
+    # data = {'k4':k4,'k3':k3,'k2':k2}
+
+    # print(id1, id2, id3)
+    # if id3 != 0:
+    #     status = User.objects.get(id=id3)  #  нашли юзера
+    #     print(status)
+    #     status = status.groups.all()  # нашли его подписки
+    #     print(status)
+    #     status = status[0].id  #  нашли айди его подписки(она одна)
+    #     print(status)
+    # else:
+    #     if id3 == 0:
+    #         status = 1
+    # if status >= id2:
+    #     print('ok')
+    #     permission = True
+    # else:
+    #     print('nelzy')
+    #     permission = False
+    #
+    # if status == id3:
+    #     k4 = Status.objects.get(id=id3).name
+    #     data = {'k4':k4}
+    #     print(k4)
+    # elif status == id2:
+    #     k4 = Status.objects.get(id=id2).name
+    #     data = {'k4': k4}
+    #     print(k4)
+    # else:
+    #     k4 = Status.objects.get(id=id1).name
+    #     data = {'k4': k4}
+    #     print(k4)
+    # k1 = Kino.objects.get(id=id1).title
+    # k2 = Group.objects.get(id=status).name
+    # k3 = Status.objects.get(id=id2).name
+
 
 def otsuper(req,type):
     usid = req.user.id  # находим номер текущего пользователя
