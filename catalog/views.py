@@ -70,6 +70,10 @@ def prosmotr(req,id1,id2,id3):
 
 
 def kuppodpiska(req):
+    group = Group.objects.get(id=1)
+
+    film = Kino.objects.all()
+    print(group,film)
     return render(req, 'kuppodpiska.html')
     # if id3 != 0:
     #     status = User.objects.get(id=id3)  # нашли юзера

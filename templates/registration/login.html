@@ -19,6 +19,11 @@
               <td>{{ form.password.label_tag }}</td>
                <td>{{ form.password }}</td>
           </tr>
+          <tr>
+              <td>
+                  <a href="{% url 'password_reset' %}">забыл пороль</a>
+              </td>
+          </tr>
       </table>
       <input type="submit" value="вход">
   </form>
